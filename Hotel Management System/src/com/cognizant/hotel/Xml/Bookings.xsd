@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+
+<xs:element name="Bookings" type="Bookings" />
+<xs:complexType name="Bookings">
+<xs:sequence>
+<xs:element name="Booking" type="booking" maxOccurs ="unbounded" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="booking">
+<xs:sequence>
+<xs:element name="roomId" type="xs:int" />
+<xs:element name="customer_id" type="xs:int" />
+<xs:element name="customer_name" type="xs:string" />
+<xs:element name="checkInDate" type="xs:date" />
+<xs:element name="checkOutDate" type="xs:date" />
+<xs:element name="totalCost" type="xs:float" />
+</xs:sequence>
+<xs:attribute name="bookingId" type="xs:int" use="required" />
+</xs:complexType>
+</xs:schema>

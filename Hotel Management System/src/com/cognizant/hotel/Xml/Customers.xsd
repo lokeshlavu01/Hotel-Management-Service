@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+
+<xs:element name="Customers" type="Customers"  />
+<xs:complexType name="Customers">
+<xs:sequence>
+<xs:element name="Customer" type="Customer" maxOccurs ="unbounded" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Customer">
+<xs:sequence>
+<xs:element name="companyName" type="xs:string"/>
+<xs:element name="name" type="String15Chars"/>
+<xs:element name="email" type="email"/>
+<xs:element name="mblNum" type="xs:int"/>
+<xs:element name="passward" type="xs:string"/>
+</xs:sequence>
+<xs:attribute name="empId" type="id" use="required" />
+</xs:complexType>
+
+<xs:simpleType name="String15Chars">
+<xs:restriction base="xs:string">
+<xs:maxLength value="15" />
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="phone">
+<xs:restriction base="xs:int">
+<xs:pattern value="[0-9]{10}"></xs:pattern>
+</xs:restriction>
+</xs:simpleType> 
+<xs:simpleType name="email">
+<xs:restriction base="xs:string">
+<xs:pattern value="[^@]+@[^\.]+\..+"></xs:pattern>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="id">
+<xs:restriction base="xs:int">
+<xs:pattern value="[0-9]*"></xs:pattern>
+</xs:restriction>
+</xs:simpleType>
+
+</xs:schema>

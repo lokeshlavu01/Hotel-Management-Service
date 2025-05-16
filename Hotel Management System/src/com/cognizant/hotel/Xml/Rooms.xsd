@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+<xs:element name="Rooms" type="Rooms"/>
+<xs:complexType name="Rooms">
+<xs:sequence>
+<xs:element name="Room" type="Room" maxOccurs ="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Room">
+<xs:sequence>
+<xs:element name="roomType" type="roomtype"/>
+<xs:element name="TV" type="tv" />
+<xs:element name="WIFI" type="wifi"/>
+<xs:element name="roomPrice" type="xs:float" />
+<xs:element name ="specialFeatures" type="xs:string"/>
+</xs:sequence>
+<xs:attribute name="roomId" type="id" use="required"/>
+</xs:complexType>
+
+
+<xs:simpleType name="id">
+<xs:restriction base="xs:int">
+<xs:pattern value="[0-9]*"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="roomtype">
+<xs:restriction base="xs:string">
+<xs:enumeration value="AC" />
+<xs:enumeration value="NONAC" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="tv">
+<xs:restriction base="xs:string">
+<xs:enumeration value="YES" />
+<xs:enumeration value="NO" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="wifi">
+<xs:restriction base="xs:string">
+<xs:enumeration value="YES" />
+<xs:enumeration value="NO" />
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
